@@ -20,6 +20,11 @@ SnackBar that responds to the keyboard and shows a message at the bottom of the 
 File > Add Packages > https://github.com/donggyushin/DGSnackBar/edit/main/README.md
 ```
 
+### CocoaPod
+```
+pod 'DGSnackBar', :git => 'https://github.com/donggyushin/DGSnackBar'
+```
+
 ## Usage
 ```
 DGSnackBar.shared.showToast("Hi")
