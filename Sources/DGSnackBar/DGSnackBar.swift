@@ -30,9 +30,9 @@ public class DGSnackBar {
     private var keyboardHeight: CGFloat = 0
     private var isKeyboardPresent = false
     
-    public func showToast(_ text: String) {
+    public func showToast(_ text: String, action: (() -> Void)? = nil) {
         guard let window = UIApplication.shared.connectedScenes.compactMap({ ($0 as? UIWindowScene) }).flatMap({ $0.windows }).first(where: { $0.isKeyWindow }) else { return }
-        let snackBarView = SnackBarView(descriptionString: text, backgroundColor: backgroundColor, textColor: textColor, duration: duration, textAlignment: textAlignment, alpha: alpha, cornerRadius: cornerRadius)
+        let snackBarView = SnackBarView(descriptionString: text, backgroundColor: backgroundColor, textColor: textColor, duration: duration, textAlignment: textAlignment, alpha: alpha, cornerRadius: cornerRadius, action: action)
         self.snackBarView = snackBarView
         window.subviews.compactMap({ $0 as? SnackBarView }).forEach({ $0.hideFading() })
         window.addSubview(snackBarView)
