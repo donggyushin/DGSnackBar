@@ -34,7 +34,9 @@ pod 'DGSnackBar', :git => 'https://github.com/donggyushin/DGSnackBar'
 
 ## Usage
 ```
-DGSnackBar.shared.showToast("Hi")
+DGSnackBar.shared.showToast("Hi") {
+    print("Add your action here")
+}
 ```
 
 ## Properties
