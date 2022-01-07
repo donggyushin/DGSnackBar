@@ -31,8 +31,10 @@ class SnackBarView: UIView {
     private let _alpha: CGFloat
     private let duration: CGFloat
     private let cornerRadius: CGFloat
+    private lazy var tap = UITapGestureRecognizer(target: self, action: #selector(tapHandler))
+    private let action: (() -> Void)?
     
-    init(descriptionString: String, backgroundColor: UIColor = .label, textColor: UIColor = UIColor.systemBackground, duration: CGFloat = 2.5, textAlignment: NSTextAlignment = .natural, alpha: CGFloat = 1, cornerRadius: CGFloat = 10) {
+    init(descriptionString: String, backgroundColor: UIColor = .label, textColor: UIColor = UIColor.systemBackground, duration: CGFloat = 2.5, textAlignment: NSTextAlignment = .natural, alpha: CGFloat = 1, cornerRadius: CGFloat = 10, action: (() -> Void)? = nil) {
         self.descriptionString = descriptionString
         self.textColor = textColor
         self.textAlignment = textAlignment
@@ -40,6 +42,7 @@ class SnackBarView: UIView {
         self._alpha = alpha
         self.duration = duration
         self.cornerRadius = cornerRadius
+        self.action = action
         super.init(frame: .zero)
         configureUI()
     }
@@ -49,6 +52,7 @@ class SnackBarView: UIView {
     }
     
     private func configureUI() {
+        addGestureRecognizer(tap)
         alpha = _alpha
         backgroundColor = _backgroundColor
         transform = .init(translationX: 0, y: 200)
@@ -64,6 +68,11 @@ class SnackBarView: UIView {
         DispatchQueue.main.asyncAfter(deadline: .now() + duration) {
             self.hide()
         }
+    }
+    
+    @objc private func tapHandler(_ sender: UITapGestureRecognizer) {
+        action?()
+        hideFading()
     }
     
     private func present() {
