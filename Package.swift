@@ -27,5 +27,6 @@ let package = Package(
         .testTarget(
             name: "DGSnackBarTests",
             dependencies: ["DGSnackBar"]),
-    ]
+    ],
+    swiftLanguageVersions: [.v5]
 )
