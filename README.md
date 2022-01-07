@@ -1,8 +1,9 @@
-[DGSnackBar](#DGSnackBar)
-[Requirements](#Requirements)
-[Installation](#Installation)
-[Usage](#Usage)
-[Properties](#Properties)
+1. [DGSnackBar](#DGSnackBar)
+2. [Requirements](#Requirements)
+3. [Installation](#Installation)
+4. [Usage](#Usage)
+5. [Properties](#Properties)
+
 
 # DGSnackBar
 SnackBar that responds to the keyboard and shows a message at the bottom of the screen.
