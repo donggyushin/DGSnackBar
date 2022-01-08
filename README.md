@@ -51,7 +51,8 @@ DGSnackBar.shared.showToast("Description text", "Title text")
 | backgroundColor  | Snackbar's background color  | .systemBackground | UIColor |
 | textColor  | Snackbar's text color  | .label | UIColor |
 | duration  | Snackbar's visual duration time  | 2.5 | CGFloat |
-| textAlignment  | Snackbar's text alignement  | .natural | NSTextAlignment |
+| textAlignment  | Snackbar's description text alignement  | .natural | NSTextAlignment |
+| titleTextAlignment | Snackbar's title text alignment | .natural | NSTextAlignment |
 | alpha  | Snackbar's alpha  | 0.8 | CGFloat |
 | cornerRadius  | Snackbar's border radius  | 10 | CGFloat |
 
