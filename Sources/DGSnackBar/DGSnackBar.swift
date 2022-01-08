@@ -23,6 +23,7 @@ public class DGSnackBar {
     public var textColor: UIColor = UIColor.systemBackground
     public var duration: CGFloat = 2.5
     public var textAlignment: NSTextAlignment = .natural
+    public var titleTextAlignment: NSTextAlignment = .natural
     public var alpha: CGFloat = 0.8
     public var cornerRadius: CGFloat = 10
     
@@ -30,9 +31,9 @@ public class DGSnackBar {
     private var keyboardHeight: CGFloat = 0
     private var isKeyboardPresent = false
     
-    public func showToast(_ text: String, action: (() -> Void)? = nil) {
+    public func showToast(_ description: String, _ title: String? = nil, action: (() -> Void)? = nil) {
         guard let window = UIApplication.shared.connectedScenes.compactMap({ ($0 as? UIWindowScene) }).flatMap({ $0.windows }).first(where: { $0.isKeyWindow }) else { return }
-        let snackBarView = SnackBarView(descriptionString: text, backgroundColor: backgroundColor, textColor: textColor, duration: duration, textAlignment: textAlignment, alpha: alpha, cornerRadius: cornerRadius, action: action)
+        let snackBarView = SnackBarView(descriptionString: description, titleString: title, backgroundColor: backgroundColor, textColor: textColor, duration: duration, textAlignment: textAlignment, titleTextAlignment: titleTextAlignment, alpha: alpha, cornerRadius: cornerRadius, action: action)
         self.snackBarView = snackBarView
         window.subviews.compactMap({ $0 as? SnackBarView }).forEach({ $0.hideFading() })
         window.addSubview(snackBarView)
