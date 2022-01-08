@@ -6,7 +6,7 @@
 
 
 # DGSnackBar
-SnackBar that responds to the keyboard and shows a message at the bottom of the screen.
+Functional SnackBar that responds to the keyboard and shows a message at the bottom of the screen. 
 
 
 <div>
@@ -36,7 +36,7 @@ pod 'DGSnackBar', :git => 'https://github.com/donggyushin/DGSnackBar'
 ## Usage
 ```
 DGSnackBar.shared.showToast("Hi") {
-    print("Add your action here")
+    print("Add here a function that wants to be triggered when user tapped the snackbar view")
 }
 
 // If you want to show SnackBar with title message
@@ -51,7 +51,8 @@ DGSnackBar.shared.showToast("Description text", "Title text")
 | backgroundColor  | Snackbar's background color  | .systemBackground | UIColor |
 | textColor  | Snackbar's text color  | .label | UIColor |
 | duration  | Snackbar's visual duration time  | 2.5 | CGFloat |
-| textAlignment  | Snackbar's text alignement  | .natural | NSTextAlignment |
+| textAlignment  | Snackbar's description text alignement  | .natural | NSTextAlignment |
+| titleTextAlignment | Snackbar's title text alignment | .natural | NSTextAlignment |
 | alpha  | Snackbar's alpha  | 0.8 | CGFloat |
 | cornerRadius  | Snackbar's border radius  | 10 | CGFloat |
 
