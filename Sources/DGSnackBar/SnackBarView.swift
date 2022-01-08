@@ -8,6 +8,15 @@ import UIKit
 
 class SnackBarView: UIView {
     
+    private lazy var backgroundView: UIView = {
+        let view = UIView()
+        view.backgroundColor = _backgroundColor
+        view.alpha = _alpha
+        view.layer.cornerRadius = cornerRadius
+        view.clipsToBounds = true
+        return view
+    }()
+    
     private lazy var descriptionLabel: UILabel = {
         let view = UILabel()
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -53,18 +62,25 @@ class SnackBarView: UIView {
     
     private func configureUI() {
         addGestureRecognizer(tap)
-        alpha = _alpha
-        backgroundColor = _backgroundColor
-        transform = .init(translationX: 0, y: 200)
-        layer.cornerRadius = cornerRadius
-        clipsToBounds = true
+        
+        addSubview(backgroundView)
+        backgroundView.translatesAutoresizingMaskIntoConstraints = false
+        backgroundView.topAnchor.constraint(equalTo: topAnchor).isActive = true
+        backgroundView.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
+        backgroundView.rightAnchor.constraint(equalTo: rightAnchor).isActive = true
+        backgroundView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
+        
         addSubview(verticalStackView)
         verticalStackView.translatesAutoresizingMaskIntoConstraints = false
         verticalStackView.topAnchor.constraint(equalTo: topAnchor, constant: 10).isActive = true
         verticalStackView.leftAnchor.constraint(equalTo: leftAnchor, constant: 20).isActive = true
         verticalStackView.rightAnchor.constraint(equalTo: rightAnchor, constant: -20).isActive = true
         verticalStackView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10).isActive = true
+        
+        transform = .init(translationX: 0, y: 200)
+        
         present()
+        
         DispatchQueue.main.asyncAfter(deadline: .now() + duration) {
             self.hide()
         }
