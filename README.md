@@ -25,7 +25,7 @@ Functional SnackBar that responds to the keyboard and shows a message at the bot
 
 ### SPM
 ```
-File > Add Packages > https://github.com/donggyushin/DGSnackBar/edit/main/README.md
+File > Add Packages > https://github.com/donggyushin/DGSnackBar
 ```
 
 ### CocoaPod
