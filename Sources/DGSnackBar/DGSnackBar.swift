@@ -19,8 +19,8 @@ public class DGSnackBar {
         )
     }
     
-    public var backgroundColor: UIColor = .label
-    public var textColor: UIColor = UIColor.systemBackground
+    public var backgroundColor: UIColor = .black
+    public var textColor: UIColor = UIColor.white
     public var duration: CGFloat = 2.5
     public var textAlignment: NSTextAlignment = .natural
     public var titleTextAlignment: NSTextAlignment = .natural
@@ -32,7 +32,15 @@ public class DGSnackBar {
     private var isKeyboardPresent = false
     
     public func showToast(_ description: String, _ title: String? = nil, action: (() -> Void)? = nil) {
-        guard let window = UIApplication.shared.connectedScenes.compactMap({ ($0 as? UIWindowScene) }).flatMap({ $0.windows }).first(where: { $0.isKeyWindow }) else { return }
+        
+        var window: UIWindow?
+        if #available(iOS 13, *) {
+            window = UIApplication.shared.connectedScenes.compactMap({ ($0 as? UIWindowScene) }).flatMap({ $0.windows }).first(where: { $0.isKeyWindow })
+        } else {
+            window = UIApplication.shared.keyWindow
+        }
+        guard let window = window else { return }
+
         let snackBarView = SnackBarView(descriptionString: description, titleString: title, backgroundColor: backgroundColor, textColor: textColor, duration: duration, textAlignment: textAlignment, titleTextAlignment: titleTextAlignment, alpha: alpha, cornerRadius: cornerRadius, action: action)
         self.snackBarView = snackBarView
         window.subviews.compactMap({ $0 as? SnackBarView }).forEach({ $0.hideFading() })

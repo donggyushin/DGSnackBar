@@ -60,7 +60,7 @@ class SnackBarView: UIView {
     private lazy var tap = UITapGestureRecognizer(target: self, action: #selector(tapHandler))
     private let action: (() -> Void)?
     
-    init(descriptionString: String, titleString: String? = nil, backgroundColor: UIColor = .label, textColor: UIColor = UIColor.systemBackground, duration: CGFloat = 2.5, textAlignment: NSTextAlignment = .natural, titleTextAlignment: NSTextAlignment = .natural, alpha: CGFloat = 1, cornerRadius: CGFloat = 10, action: (() -> Void)? = nil) {
+    init(descriptionString: String, titleString: String? = nil, backgroundColor: UIColor = .black, textColor: UIColor = UIColor.white, duration: CGFloat = 2.5, textAlignment: NSTextAlignment = .natural, titleTextAlignment: NSTextAlignment = .natural, alpha: CGFloat = 1, cornerRadius: CGFloat = 10, action: (() -> Void)? = nil) {
         self.descriptionString = descriptionString
         self.titleString = titleString
         self.textColor = textColor
@@ -74,6 +74,7 @@ class SnackBarView: UIView {
         super.init(frame: .zero)
         configureUI()
     }
+    
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
