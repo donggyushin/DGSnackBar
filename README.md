@@ -16,7 +16,7 @@ Functional SnackBar that responds to the keyboard and shows a message at the bot
 </div>
 
 ## Requirements
-- iOS 13.0+
+- iOS 12.0+
 - Swift 5.5+
 - Xcode 10.0+
 
