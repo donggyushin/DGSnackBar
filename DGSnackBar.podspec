@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name             = 'DGSnackBar'
-    s.version          = '1.0.3'
+    s.version          = '1.0.4'
     s.summary          = 'SnackBar that responds to the keyboard and shows a message at the bottom of the screen.'
     s.homepage         = 'https://github.com/donggyushin/DGSnackBar'
     s.license          = { :type => 'MIT', :file => 'LICENSE.md' }
