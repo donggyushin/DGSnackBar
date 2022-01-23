@@ -46,9 +46,11 @@ public class DGSnackBar {
         window.subviews.compactMap({ $0 as? SnackBarView }).forEach({ $0.hideFading() })
         window.addSubview(snackBarView)
         snackBarView.translatesAutoresizingMaskIntoConstraints = false
-        snackBarView.bottomAnchor.constraint(equalTo: window.safeAreaLayoutGuide.bottomAnchor, constant: -10 - keyboardHeight).isActive = true
-        snackBarView.leftAnchor.constraint(equalTo: window.leftAnchor, constant: 20).isActive = true
-        snackBarView.rightAnchor.constraint(equalTo: window.rightAnchor, constant: -20).isActive = true
+        NSLayoutConstraint.activate([
+            snackBarView.bottomAnchor.constraint(equalTo: window.safeAreaLayoutGuide.bottomAnchor, constant: -10 - keyboardHeight),
+            snackBarView.leftAnchor.constraint(equalTo: window.leftAnchor, constant: 20),
+            snackBarView.rightAnchor.constraint(equalTo: window.rightAnchor, constant: -20)
+        ])
     }
     
     @objc private func keyboardWillHide(_ notification: Notification) {
