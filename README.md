@@ -36,7 +36,7 @@ pod 'DGSnackBar', :git => 'https://github.com/donggyushin/DGSnackBar'
 ## Usage
 ```
 DGSnackBar.shared.showToast("Hi") {
-    print("Add here a function that wants to be triggered when user tapped the snackbar view")
+    print("Add here a function that you want to execute when user tapped the snackbar view")
 }
 
 // If you want to show SnackBar with title message
