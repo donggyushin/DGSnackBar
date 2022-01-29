@@ -30,7 +30,7 @@ File > Add Packages > https://github.com/donggyushin/DGSnackBar
 
 ### CocoaPod
 ```
-pod 'DGSnackBar', :git => 'https://github.com/donggyushin/DGSnackBar'
+pod 'DGSnackBar', :git => 'https://github.com/donggyushin/DGSnackBar.git'
 ```
 
 ## Usage
